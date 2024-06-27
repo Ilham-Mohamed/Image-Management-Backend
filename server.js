@@ -1,4 +1,5 @@
 import express from 'express';
+import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import morgan from 'morgan';
@@ -11,6 +12,15 @@ app.use(morgan('dev'));
 dotenv.config();
 
 app.use(cors());
+
+mongoose
+  .connect(process.env.DB_URL)
+  .then(() => {
+    console.log('DB connection established');
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 app.use('/api', imageRouter);
 
