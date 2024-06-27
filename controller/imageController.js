@@ -37,7 +37,7 @@ export const getImages = async (req, res) => {
         Message: 'No Images Found',
       });
     }
-    res.status(404).json({
+    res.status(200).json({
       Message: 'Images Fetched Successfully',
       images,
     });
