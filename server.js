@@ -39,7 +39,7 @@ cloudinary.config({
 
 // swagger options
 const options = {
-  defination: {
+  definition: {
     openapi: '3.0.0',
     info: {
       title: 'Image Manager Api',
@@ -53,8 +53,15 @@ const options = {
       },
     ],
   },
-  apis: ['src/**/*'],
+  apis: ['./src/**/*.js'],
 };
+
+const specs = swaggerJSDoc(options);
+app.use(
+  '/api-docs',
+  swaggerUi.serve,
+  swaggerUi.setup(specs, { customCss: CSS_URL })
+);
 
 app.use('/api', imageRouter);
 

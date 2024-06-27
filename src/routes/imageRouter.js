@@ -4,7 +4,7 @@ import {
   getImages,
   updateImage,
   uploadImage,
-} from '../controller/imageController.js';
+} from '../../controller/imageController.js';
 
 const imageRouter = express.Router();
 
